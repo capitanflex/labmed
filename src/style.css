@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background: rgba(247, 247, 247, 1);
+  --username: rgba(12, 180, 241, 1);
+  --font: rgba(172, 172, 172, 1);
+  --names-tablet: rgba(158, 170, 180, 1);
+  --dark-gray: rgba(79, 79, 79, 1);
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+a:hover {
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  font-weight: 500;
+
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+button:hover {
+}
+
+* {
+  font-family: Inter,sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+#app {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+
