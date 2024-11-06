@@ -1,5 +1,5 @@
 <script setup>
-import {useUsers} from "../scripts/useUsers.js";
+import {useUsers} from "../hooks/useUsers.js";
 
 const users = useUsers();
 
@@ -37,7 +37,6 @@ const users = useUsers();
     &__clear-btn {
         display: flex;
         align-items: center;
-
     }
 }
 

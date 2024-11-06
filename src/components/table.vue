@@ -1,5 +1,5 @@
 <script setup>
-import {useUsers} from "../scripts/useUsers.js";
+import {useUsers} from "../hooks/useUsers.js";
 import {ref, watch} from "vue";
 
 const users = useUsers();
@@ -38,69 +38,69 @@ const users = useUsers();
                 class="paginator-p"
                 v-for="(user, index) in users.filteredUsers.value"
                 :key="index"
-                :class="users.currentPage.value === index + 1? 'active': ''"
+                :class="users.currentPage.value === index + 1 && 'active'"
                 @click="users.currentPage.value = index + 1"
-            >{{index + 1}}</span>
+            >{{ index + 1 }}</span>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-    .table-container {
-        margin-top: 15px;
-        padding: 16px;
+.table-container {
+    margin-top: 15px;
+    padding: 16px;
 
-        font-weight: 500;
+    font-weight: 500;
 
-        &__paginator {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-            gap: 15px;
-            font-weight: 400;
-            color: var(--names-tablet);
-        }
+    &__paginator {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+        gap: 15px;
+        font-weight: 400;
+        color: var(--names-tablet);
+    }
+}
+
+.table {
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-bottom: 20px;
+        color: var(--names-tablet);
     }
 
-    .table {
-        &__row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            margin-bottom: 20px;
-            color: var(--names-tablet);
-        }
-
-        &__head {
-            color: var(--names-tablet);
-            margin-bottom: 26px;
-            font-size: 10px;
-        }
+    &__head {
+        color: var(--names-tablet);
+        margin-bottom: 26px;
+        font-size: 10px;
     }
+}
 
-    .row {
-        &__el {
-            flex: 1 1;
-        }
+.row {
+    &__el {
+        flex: 1 1;
     }
+}
 
-    .username {
-        font-weight: 700;
+.username {
+    font-weight: 700;
+    color: var(--username);
+}
+
+.close {
+    flex: 0 0;
+    cursor: pointer;
+    min-width: 16px;
+}
+
+.paginator-p {
+    cursor: pointer;
+
+    &.active {
         color: var(--username);
     }
-
-    .close {
-        flex: 0 0;
-        cursor: pointer;
-        min-width: 16px;
-    }
-
-    .paginator-p {
-        cursor: pointer;
-
-        &.active {
-            color: var(--username);
-        }
-    }
+}
 
 </style>

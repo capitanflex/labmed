@@ -3,17 +3,19 @@
 import Head from "./components/head.vue";
 import Table from "./components/table.vue";
 import Sort from "./components/sort.vue";
-import {useUsers} from "./scripts/useUsers.js";
+import {fetchUsers, useUsers} from "./hooks/useUsers.js";
 import DeleteUser from "./components/deleteUser.vue";
+import {onMounted} from "vue";
 
-useUsers();
+onMounted(() => {
+    fetchUsers();
+});
 </script>
 
 <template>
     <Head/>
     <Sort/>
     <Table/>
-
     <delete-user/>
 </template>
 
