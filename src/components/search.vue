@@ -1,7 +1,17 @@
 <script setup>
 import {useUsers} from "../hooks/useUsers.js";
+import {ref, watch} from "vue";
 
 const users = useUsers();
+
+const isClearBtnHidden = ref(true);
+
+watch(
+    [users.searchQuery, users.sortTypes.value],
+    () => {
+         isClearBtnHidden.value = users.searchQuery.value === '' && !users.sortTypes.value.some(sort => sort.active);
+    }
+);
 
 </script>
 
@@ -12,7 +22,7 @@ const users = useUsers();
             <input type="text" class="search__field" placeholder="Поиск по имени или e-mail"
                    v-model="users.searchQuery.value">
         </div>
-        <button class="search-container__clear-btn clear-btn">
+        <button class="search-container__clear-btn clear-btn" :class="isClearBtnHidden && 'hide'">
             <img src="../assets/clean.svg" alt="clear" class="clear-btn__clear-img">
             <span class="clear-btn__clear-text" @click="users.clearAllFilters()">Очистить фильтр</span>
         </button>
